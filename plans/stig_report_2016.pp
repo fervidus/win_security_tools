@@ -20,7 +20,10 @@ plan win_security_tools::stig_report_2016 (
 
     {
       resource => $resource,
-      message  => $value['events'][0]['message'],
+      message  => $value['events'][0] ? {
+        undef   => '-',
+        default => $value['events'][0]['message'],
+      },
       # stig     => grep($value['tags'], '^v\d+'),
     }
   }
