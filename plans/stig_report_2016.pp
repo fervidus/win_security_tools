@@ -14,7 +14,7 @@ plan win_security_tools::stig_report_2016 (
 
   $report = $results[0].report
 
-  $statuses = $report['resource_statuses'])
+  $statuses = $report['resource_statuses']
 
   $changes = $statuses.map | $resource, $value | {
 
