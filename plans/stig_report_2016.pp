@@ -25,5 +25,5 @@ plan win_security_tools::stig_report_2016 (
     }
   }
 
-  return $report
+  return $changes
 }
