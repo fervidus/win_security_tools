@@ -14,9 +14,9 @@ plan win_security_tools::stig_report_2016 (
 
   $report = $results[0].report
 
-  # $statuses = parsejson($report) # ['resource_statuses'])
+  $statuses = $report['resource_statuses'])
 
-  $changes = $report.map | $resource, $value | {
+  $changes = $statuses.map | $resource, $value | {
 
     {
       resource => $resource,
