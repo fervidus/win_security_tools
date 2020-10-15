@@ -14,13 +14,13 @@ plan win_security_tools::stig_report_2016 (
 
   $report = $results[0].report
 
-  $statuses = parsejson($report['resource_statuses'])
+  # $statuses = parsejson($report) # ['resource_statuses'])
 
-  $changes = $statuses.map | $resource, $value | {
+  $changes = $report.map | $resource, $value | {
 
     {
       resource => $resource,
-      message  => $value['events'][0]['message'],
+      # message  => $value['events'][0]['message'],
       # stig     => grep($value['tags'], '^v\d+'),
     }
   }
